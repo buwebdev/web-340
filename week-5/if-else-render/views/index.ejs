@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>if...else...render</title>
+
+    <!-- Stylesheet - Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+      integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact Us</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div role="main" class="container">
+      <br /><br />
+
+      <h2>Fruit List</h2>
+
+      <% for (var k = 0; k < fruits.length; k++) { %>
+
+      <!-- if -->
+      <% if (fruits[k] == "Apple") { %>
+      <div class="alert alert-success" role="alert">
+        <strong><%= fruits[k] %></strong>
+      </div>
+      <% } %>
+      <!-- // end if -->
+
+      <!-- if -->
+      <% if (fruits[k] == "Blueberry") { %>
+      <div class="alert alert-info" role="alert">
+        <strong><%= fruits[k] %></strong>
+      </div>
+      <% } %>
+      <!-- // end if -->
+
+      <!-- if -->
+      <% if (fruits[k] == "Orange") { %>
+      <div class="alert alert-warning" role="alert">
+        <strong><%= fruits[k] %></strong>
+      </div>
+      <% } %>
+      <!-- // end if -->
+
+      <!-- if -->
+      <% if (fruits[k] == "Strawberry") { %>
+      <div class="alert alert-danger" role="alert">
+        <strong><%= fruits[k] %></strong>
+      </div>
+      <% } %>
+      <!-- // end if -->
+
+      <% } %>
+      <!-- end for loop -->
+    </div>
+  </body>
+</html>
