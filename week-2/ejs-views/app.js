@@ -19,18 +19,21 @@ let app = express();
 app.set('views', path.resolve(__dirname, 'views')); // Tell Express the views are in the 'views' directory
 app.set('view engine', 'ejs'); // Tell Express to use the EJS view engine
 
+// const variable for the port number
+const PORT = 3000;
+
 /**
  * Returns the index.ejs page
  */
-app.get('/', function(request, response) {
-  response.render('index', {
+app.get('/', function(req, res) {
+  res.render('index', {
     message: 'Welcome to the homepage!'
   });
 });
 
 /**
- * Creates a new server to listen on the port 8080.
+ * Creates a new server to listen on the port 3000.
  */
-http.createServer(app).listen(8080, function() {
-  console.log('EJS-Views app started on port 8080.');
+http.createServer(app).listen(PORT, function() {
+  console.log(`EJS-Views app started on port ${PORT}`);
 });
