@@ -19,20 +19,23 @@ const csrf = require('csurf');
 const mongoose = require('mongoose');
 const Fruit = require('./models/fruit');
 
+// database connection string to MongoDB Atlas
+const conn = 'mongodb+srv://admin:admin@cluster0-lujih.mongodb.net/fms?retryWrites=true&w=majority';
+
 /**
- * Establishes a database connection to MongoDB (mLab).
- * Make sure you are using the credentials of the "user" you created and not your personal login information.
+ * Database connection
  */
-const mongoDB = 'mongodb://admin:amelie@ds137206.mlab.com:37206/fms';
-mongoose.connect(mongoDB, {
-  useMongoClient: true
+mongoose.connect(conn, {
+  promiseLibrary: require('bluebird'),
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useCreateIndex: true,
+}).then(() => {
+  console.log('Connection to the database instance was successful');
+}).catch(err => {
+  console.log(`MongoDB Error: ${err.message}`);
 });
-mongoose.Promise = global.Promise;
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-db.once('open', function() {
-  console.log('Application connected to mLab MongoDB instance');
-});
+
 
 /**
  * Sets up CSRF protection.
@@ -76,7 +79,7 @@ app.use(function(req, res, next) {
  */
 app.set('views', path.resolve(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || 3000);
 
 /**
  * Description: Redirects users to the 'index' page.
