@@ -4,6 +4,25 @@
   <br /><br />
 
   <h2>Welcome to the <%= message %>!</h2>
+
+  <br />
+  <h3>Product Listing</h3>
+  <table class="table table-hover">
+    <thead class="bg-secondary">
+    <tr>
+      <th class="text-white">Id</th>
+      <th class="text-white">Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% products.forEach(function (product) { %>
+      <tr>
+        <td><%= product.id %></td>
+        <td><%= product.name %></td>
+      </tr>
+    </tbody>
+    <% }) %>
+  </table>
 </div>
 
 <% include footer %>

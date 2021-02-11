@@ -7,26 +7,35 @@
 ;===========================================
 */
 
-var express = require("express");
-var http = require("http");
-var path = require("path");
-var logger = require("morgan");
+const express = require("express");
+const http = require("http");
+const path = require("path");
+const logger = require("morgan");
 
-var app = express();
+let app = express();
 
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
 
 app.use(logger("short"));
+app.set("port", process.env.PORT || 3000);
 
-app.get("/:productId", function(request, response) {
-  var productId = parseInt(request.params.productId, 10);
+app.get("/", function(req, res) {
+  const productId = parseInt(1007);
 
-  response.render("index", {
+  res.render("index", {
+    
+  })
+})
+
+app.get("/products/:id", function(request, response) {
+  var productId = parseInt(request.params.id, 10);
+
+  response.render("product", {
     productId: productId
   });
 });
 
-http.createServer(app).listen(8080, function() {
-  console.log("Application started on port 8080");
+http.createServer(app).listen(app.get("port"), function() {
+  console.log(`Application started and listening on port ${app.get("port")}`);
 });

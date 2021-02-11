@@ -19,9 +19,9 @@ let app = express();
 
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
+app.set("port", process.env.PORT || 3000);
 
 let entries = [];
-const PORT = 3000; // const variable for the server PORT
 app.locals.entries = entries;
 
 app.use(logger("dev"));
@@ -54,6 +54,6 @@ app.use(function(req, res) {
   res.status(404).render("404");
 });
 
-http.createServer(app).listen(PORT, function() {
-  console.log(`Guestbook app started on port ${PORT}`);
+http.createServer(app).listen(app.get("port"), function() {
+  console.log(`Guestbook app started on port ${app.get("port")}`);
 });

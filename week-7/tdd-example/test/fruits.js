@@ -7,7 +7,7 @@
 ;===========================================
 */
 
-var assert = require("assert");
+const assert = require("assert");
 
 describe("String#split", function() {
   it("should return an array of fruits", function() {

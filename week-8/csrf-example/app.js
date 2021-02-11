@@ -9,19 +9,19 @@
 */
 
 // require statements
-var express = require("express");
-var http = require("http");
-var path = require("path");
-var logger = require("morgan");
-var bodyParser = require("body-parser");
-var cookieParser = require("cookie-parser");
-var csrf = require("csurf");
+const express = require("express");
+const http = require("http");
+const path = require("path");
+const logger = require("morgan");
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const csrf = require("csurf");
 
 // setup csrf protection
-var csrfProtection = csrf({ cookie: true });
+const csrfProtection = csrf({ cookie: true });
 
 // initialize the express application
-var app = express();
+let app = express();
 
 // use statements
 app.use(logger("short"));
@@ -32,30 +32,31 @@ app.use(
 );
 app.use(cookieParser());
 app.use(csrfProtection);
-app.use(function(request, response, next) {
-  var token = request.csrfToken();
-  response.cookie("XSRF-TOKEN", token);
-  response.locals.csrfToken = token;
+app.use(function(req, res, next) {
+  const token = req.csrfToken();
+  res.cookie("XSRF-TOKEN", token);
+  res.locals.csrfToken = token;
   next();
 });
 
 // set statements
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
+app.set("port", process.env.PORT || 3000);
 
 // routing
-app.get("/", function(request, response) {
-  response.render("index", {
+app.get("/", function(req, res) {
+  res.render("index", {
     message: "New Fruit Entry Page"
   });
 });
 
-app.post("/process", function(request, response) {
-  console.log(request.body.txtName);
-  response.redirect("/");
+app.post("/process", function(req, res) {
+  console.log(req.body.txtName);
+  res.redirect("/");
 });
 
 // create and start the Node server
-http.createServer(app).listen(8080, function() {
-  console.log("Application started on port 8080!");
+http.createServer(app).listen(app.get("port"), function() {
+  console.log(`Application started and listening on port ${app.get("port")}`);
 });

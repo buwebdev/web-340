@@ -8,27 +8,28 @@
 ;===========================================
 */
 
-var express = require("express");
-var http = require("http");
+const express = require("express");
+const http = require("http");
 
-var app = express();
+let app = express();
+app.set("port", process.env.PORT || 3000);
 
-app.get("/", function(request, response) {
-  response.send("API invoked as an HTTP GET request.");
+app.get("/", function(req, res) {
+  res.send("API invoked as an HTTP GET request.");
 });
 
-app.put("/", function(request, response) {
-  response.send("API invoked as an HTTP PUT request.");
+app.put("/", function(req, res) {
+  res.send("API invoked as an HTTP PUT request.");
 });
 
-app.post("/", function(request, response) {
-  response.send("API invoked as an HTTP POST request");
+app.post("/", function(req, res) {
+  res.send("API invoked as an HTTP POST request");
 });
 
-app.delete("/", function(request, response) {
-  response.send("API invoked as an HTTP DELETE request");
+app.delete("/", function(req, res) {
+  res.send("API invoked as an HTTP DELETE request");
 });
 
-http.createServer(app).listen(8080, function() {
-  console.log("Application started on port 8080!");
+http.createServer(app).listen(app.get("port"), function() {
+  console.log(`Application started and listening on port ${app.get("port")}`);
 });

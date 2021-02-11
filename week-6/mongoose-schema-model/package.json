@@ -4,9 +4,10 @@
   "private": true,
   "version": "0.0.1",
   "dependencies": {
+    "bluebird": "^3.7.2",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
-    "mongoose": "^4.13.6",
+    "mongoose": "^5.11.15",
     "morgan": "^1.9.0"
   }
 }

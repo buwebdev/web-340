@@ -8,14 +8,18 @@
 ;===========================================
 */
 
-var express = require("express");
-var http = require("http");
+const express = require("express");
+const http = require("http");
 
-var app = express();
+let app = express();
+app.set("port", process.env.PORT || 3000);
+
 
 app.use(function(request, response) {
   console.log("In comes a request to: " + request.url);
   response.end("Hello World");
 });
 
-http.createServer(app).listen(8080);
+http.createServer(app).listen(app.get("port"), function() {
+  console.log(`Application started and listening on port ${app.get("port")}`);
+});

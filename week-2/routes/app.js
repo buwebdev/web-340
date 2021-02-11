@@ -7,10 +7,11 @@
 ;===========================================
 */
 
-var express = require("express");
-var http = require("http");
+const express = require("express");
+const http = require("http");
 
-var app = express();
+let app = express();
+app.set("port", process.env.PORT || 3000);
 
 app.get("/", function(request, response) {
   response.end("Welcome to the homepage!");
@@ -29,4 +30,6 @@ app.use(function(request, response) {
   response.end("404!");
 });
 
-http.createServer(app).listen(8080);
+http.createServer(app).listen(app.get("port"), function() {
+  console.log(`Application started and listening on port ${app.get("port")}`);
+});

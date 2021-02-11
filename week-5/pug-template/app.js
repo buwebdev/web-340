@@ -7,22 +7,23 @@
 ;===========================================
 */
 
-var express = require("express");
-var http = require("http");
-var pug = require("pug");
-var path = require("path");
+const express = require("express");
+const http = require("http");
+const pug = require("pug");
+const path = require("path");
 
-var app = express();
+let app = express();
 
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "pug");
+app.set("port", process.env.PORT || 3000);
 
-app.get("/", function(request, response) {
-  response.render("index", {
+app.get("/", function(req, res) {
+  res.render("index", {
     message: "Welcome to my Pug based homepage!"
   });
 });
 
-http.createServer(app).listen(8080, function() {
-  console.log("Application started on port 8080!");
+http.createServer(app).listen(app.get("port"), function() {
+  console.log(`Application started and listening on port ${app.get("port")}`);
 });

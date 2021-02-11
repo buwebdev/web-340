@@ -7,23 +7,24 @@
 ;===========================================
 */
 
-var express = require("express");
-var http = require("http");
-var path = require("path");
+const express = require("express");
+const http = require("http");
+const path = require("path");
 
-app = express();
+let app = express();
 
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
+app.set("port", process.env.PORT || 3000);
 
-var f = ["Apple", "Blueberry", "Orange", "Strawberry"];
+const fruits = ["Apple", "Blueberry", "Orange", "Strawberry"];
 
-app.get("/", function(request, response) {
+app.get("/", function(req, res) {
   response.render("index", {
-    fruits: f
+    fruits: fruits
   });
 });
 
-http.createServer(app).listen(8080, function() {
-  console.log("Application started on port 8080!");
+http.createServer(app).listen(app.get("port"), function() {
+  console.log(`Application started and listening on port ${app.get("port")}`);
 });
