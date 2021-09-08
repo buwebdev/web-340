@@ -3,6 +3,9 @@
   "author": "Professor Krasso",
   "private": true,
   "version": "0.0.1",
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
     "bluebird": "^3.7.2",
     "body-parser": "^1.18.2",
@@ -15,10 +18,8 @@
     "mongoose": "^5.11.15",
     "morgan": "^1.9.0"
   },
-  "scripts": {
-    "start": "node app.js"
-  },
   "engines": {
-    "node": "6.11.x"
+    "node": "^14.17.6",
+    "npm": "^6.14.15"
   }
 }
