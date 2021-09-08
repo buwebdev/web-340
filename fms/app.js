@@ -180,6 +180,20 @@ app.get('/view/:queryName', function(req, res) {
   })
 });
 
+app.get('/fruits/delete/:id', function(req, res) {
+  const fruitId = req.params.id; 
+  Fruit.findByIdAndDelete({'_id': fruitId}, function(err, fruits) {
+    if (err) {
+      console.log(err);
+      throw err;
+    }
+    else {
+      console.log(fruits);
+      res.redirect('/');
+    }
+  })
+})
+
 /**
  * Creates a new Node.js server and listens on local port 8080.
  */
