@@ -5,27 +5,30 @@
   <body>
     <% include navbar %>
 
-    <div role="main" class="container" style="width: 50%;">
-      <br /><br />
+    <div role="main" class="container" style="width: 30%; margin-top: 5%;">
+      <div class="card">
+        <br /><br />
 
-      <h2>-- Fruit Entry Page --</h2>
-      <form method="post" action="/process">
-        <div class="form-group">
-          <label for="txtName">Name:</label>
-          <input type="text" class="form-control" id="txtName" name="txtName" />
+        <h2 class="text-center">New Fruit Form</h2>
+
+        <div class="card-body">
+          <form method="post" action="/process">
+            <div class="form-group">
+              <label for="txtName">Name:</label>
+              <input type="text" class="form-control" id="txtName" name="txtName" />
+            </div>
+  
+            <div class="form-group">
+              <!-- CSRF token -->
+              <input name="_csrf" value="<%= csrfToken %>" type="hidden" />
+  
+              <button type="submit" class="btn btn-secondary float-right">
+                Submit
+              </button>
+            </div>
+          </form>
         </div>
-
-        <div class="form-group">
-          <!-- CSRF token -->
-          <input name="_csrf" value="<%= csrfToken %>" type="hidden" />
-
-          <button type="submit" class="btn btn-secondary float-right">
-            Submit
-          </button>
-        </div>
-      </form>
-
-      <br /><br />
+      </div>
 
       <a href="/">Return to Fruits</a>
     </div>
