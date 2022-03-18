@@ -1,0 +1,15 @@
+<section class="navbar">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+
+    <div style="text-align: right; float: right">
+        <% if(currentUser) { %>
+            <a href="#">Hi <%= currentUser %></a> <a href="/logout">Logout</a>
+        <% } %>
+
+        <% if(!currentUser) { %>
+            <a href="/register">Register</a> <a href="/login">Login</a>
+        <% } %>
+    </div>
+</section>

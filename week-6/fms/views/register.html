@@ -1,0 +1,68 @@
+<%- include('_header.html') %>
+
+<%- include('_navbar.html') %>
+
+<section class="container">
+    <h1 class="center-text"><%= message %></h1>
+    <div class="card center-div">
+        <div class="card-title">
+            <%= cardTitle %>
+        </div>
+        <div class="card-content">
+            <div class="form">
+                <form action="/register" method="post">
+                    <div class="form-field">
+                        <label for="username">Username</label><br />
+                        <input type="text" class="input" name="username" id="username" required autofocus>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="password">Password</label><br />
+                        <input type="password" class="input" name="password" id="password" required>
+                    </div>
+
+                    <div class="form-field">
+                        <input type="submit" value="Register" class="btn btn-primary full-width">
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="card center-div">
+        <div class="card-title">
+            User List
+        </div>
+
+        <div class="card-content">
+            <% if(users.length > 0) { %>
+            <table class="table">
+                <tr>
+                    <th>Username</th>
+                    <th>Created at</th>
+                </tr>
+                <tbody>
+                <% users.forEach(function(user) { %>
+                <tr>
+                    <td>
+                        <%= user.username %>
+                    </td>
+                    <td>
+                        <%= moment(user.createdAt).format('MM-DD-YYYY') %>
+                    </td>
+                </tr>
+                <% }) %>
+                </tbody>
+            </table>
+            <% } else { %>
+            <h3>Users have not been added to the MongoDB database.  Try adding some!</h3>
+            <% } %>
+        </div>
+    </div>
+</section>
+
+<%- include('_footer.html') %>

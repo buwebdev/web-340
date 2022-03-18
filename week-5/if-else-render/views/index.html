@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+
+    <link rel="stylesheet" href="/styles/site.css">
+
+    <!-- Google fonts for Oswald -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <h1>Week 5 - Layouts</h1>
+</header>
+
+<section class="navbar">
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+</section>
+
+<section class="container">
+    <h1 class="center-text"><%= message %> </h1>
+    <div class="card center-div">
+        <div class="card-title">
+            <%= cardTitle %>
+        </div>
+
+        <div class="card-content">
+            <% for (let index = 0; index < fruits.length; index++) { %>
+
+            <% if (fruits[index].name === 'Apple') { %>
+            <div class="fruit-color" style="background-color: green; color: white;">
+                <h3><%= fruits[index].name %>'s are yummy!</h3>
+            </div>
+            <% } %>
+
+            <% if (fruits[index].name === 'Orange') { %>
+            <div class="fruit-color" style="background-color: orange; color: white;">
+                <h3><%= fruits[index].name %>'s are sour!</h3>
+            </div>
+            <% } %>
+
+            <% if (fruits[index].name === 'Grape') { %>
+            <div class="fruit-color" style="background-color: purple; color: white;">
+                <h3><%= fruits[index].name %>'s are sweet!</h3>
+            </div>
+            <% } %>
+
+            <% if (fruits[index].name === 'Strawberry') { %>
+            <div class="fruit-color" style="background-color: red; color: white;">
+                <h3><%= fruits[index].name %>'s are delicious!</h3>
+            </div>
+            <% } %>
+
+            <% } %>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
