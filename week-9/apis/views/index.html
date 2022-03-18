@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+
+    <link rel="stylesheet" href="/styles/site.css">
+
+    <!-- Google fonts for Oswald -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="header">
+    <h1>Week 8 - Advanced Forms</h1>
+</header>
+
+<section class="navbar">
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+</section>
+
+<section class="container">
+    <h1 class="center-text"><%= message %> </h1>
+    <div class="card center-div">
+        <div class="card-title">
+            <%= cardTitle %>
+        </div>
+
+        <div class="card-content">
+            <form action="/books" method="post">
+                <div class="form-field">
+                    <label for="isbn">ISBN</label><br />
+                    <input type="text" class="input" name="isbn" id="isbn" required autofocus>
+                </div>
+
+                <div class="form-field">
+                    <label for="title">Title</label><br />
+                    <input type="text" class="input" name="title" id="title" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="authors">Authors</label><br />
+                    <input type="text" class="input" name="authors" id="authors" required>
+                </div>
+
+                <div class="form-field">
+                    <label for="publisher">Publisher</label><br />
+                    <select name="publisher" id="publisher" class="drop-down-menu full-width">
+                        <% publishers.forEach((publisher) => { %>
+                            <option value="<%= publisher.id %>"><%= publisher.name %></option>
+                        <% }) %>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <input type="submit" value="Add fruit" class="btn btn-primary full-width">
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="card center-div">
+        <div class="card-title">
+            Book List
+        </div>
+
+        <div class="card-content">
+            <table class="table">
+                <tr>
+                    <th>ISBN</th>
+                    <th>Title</th>
+                    <th>Authors</th>
+                </tr>
+                <tbody>
+                    <% books.forEach(function(book) { %>
+                        <tr>
+                            <td><%= book.isbn %></td>
+                            <td><%= book.title %></td>
+                            <td><%= book.authors %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

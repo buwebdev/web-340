@@ -1,0 +1,84 @@
+<%- include('_header.html') %>
+
+<%- include('_navbar.html') %>
+
+<section class="container">
+    <h1 class="center-text"><%= message %> </h1>
+    <div class="card center-div">
+        <div class="card-title">
+            <%= cardTitle %>
+        </div>
+
+        <div class="card-content">
+            <form action="/fruits" method="post">
+                <div class="form-field">
+                    <label for="fruitName">Fruit Name</label><br />
+                    <input type="text" id="fruitName" name="fruitName" class="input" required autofocus>
+                </div>
+
+                <div class="form-field">
+                    <input type="submit" value="Add fruit" class="btn btn-primary full-width">
+                </div>
+            </form>
+
+            <br /><br /><br />
+
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="card center-div">
+        <div class="card-title">
+            Fruit List
+        </div>
+
+        <div class="card-content">
+            <div id="fruits">
+
+            </div>
+            <!--<% if(fruits.length > 0) { %>
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Functions</th>
+                </tr>
+                <tbody>
+                <% fruits.forEach(function(fruit) { %>
+                <tr>
+                    <td>
+                        <%= fruit.name %>
+                    </td>
+                    <td>
+                        <a href="#">EDIT</a>
+                    </td>
+                </tr>
+                <% }) %>
+                </tbody>
+            </table>
+            <% } else { %>
+            <h3>Fruits have not been added to the MongoDB database.  Try adding some!</h3>
+            <% } %>-->
+        </div>
+    </div>
+</section>
+
+<script>
+    fetch('/api/fruits')
+        .then(res => res.json())
+        .then(fruits => {
+            let fruitTable = `<table class="table"><tr><th>Name</th><th>Functions</th></tr><tbody>`;
+
+            for (let fruit of fruits) {
+                fruitTable += `<tr><td>${fruit.name}</td><td><a href="/fruit-details/${fruit._id}">EDIT</a></td></tr>`
+            }
+
+            fruitTable += `</tbody></table>`;
+
+            document.getElementById('fruits').innerHTML = fruitTable;
+
+            console.log( fruits)
+        })
+</script>
+
+<%- include('_footer.html') %>
