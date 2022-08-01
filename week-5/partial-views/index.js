@@ -11,7 +11,7 @@ app.set('view engine', 'html');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-const PORT = 3000 || process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
     res.render('index', {
