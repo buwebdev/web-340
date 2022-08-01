@@ -1,3 +1,12 @@
+/*
+============================================
+; Title:  functions.js
+; Author: Professor Krasso
+; Date:   1 August 2022
+; Description: Function Examples
+;===========================================
+*/
+
 function getName() {
     return "My name is Professor Krasso";
 }

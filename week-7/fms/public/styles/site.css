@@ -175,3 +175,20 @@ footer a:hover {
 .full-width {
     width: 100%;
 }
+
+/* Container holding the image and the text */
+#landing-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Bottom right text */
+.text-block {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: black;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+}

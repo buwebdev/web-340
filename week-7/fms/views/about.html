@@ -1,15 +1,28 @@
-<%- include('_header.html') %>
-
-<%- include('_navbar.html') %>
+<%- include('./partials/_header.html') %>
 
 <section class="container">
-    <h1 class="center-text"><%= message %> </h1>
+    <h1 class="center-text">Welcome to the FMS About Us Page! </h1>
     <div class="card center-div">
         <div class="card-title">
-            Welcome to the <%= pageName %>
+            <%= pageTitle %>
         </div>
 
         <div class="card-content">
+            <table style="border-spacing: 20px;">
+                <tr>
+                    <td>
+                        <!-- https://unsplash.com/photos/5JQH9Iqnm9o -->
+                        <img src="./images/fms-about.jpg" height="150" width="250" />
+                    </td>
+                    <td>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis dignissim lorem. Pellentesque interdum eget arcu id viverra.
+                        Nunc iaculis nisl ut mi venenatis bibendum. Quisque vel rutrum felis. Suspendisse pretium, quam vitae viverra condimentum, mi neque convallis ligula,
+                        ac consectetur eros nisi quis purus. Mauris lacinia mauris eget tortor pellentesque, et pretium eros lobortis. Curabitur et euismod turpis, ut laoreet ipsum.
+                        Aenean lacinia tincidunt egestas. Donec hendrerit placerat dignissim. Curabitur arcu ante, porta id est ut, cursus mattis est.
+                    </td>
+                </tr>
+            </table>
+
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis dignissim lorem. Pellentesque interdum eget arcu id viverra.
                 Nunc iaculis nisl ut mi venenatis bibendum. Quisque vel rutrum felis. Suspendisse pretium, quam vitae viverra condimentum, mi neque convallis ligula,
@@ -23,4 +36,4 @@
 
 </section>
 
-<%- include('_footer.html') %>
+<%- include('./partials/_footer.html') %>

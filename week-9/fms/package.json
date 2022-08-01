@@ -1,5 +1,5 @@
 {
-  "name": "if-else-render",
+  "name": "fms",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,20 +8,14 @@
     "dev": "nodemon index.js"
   },
   "keywords": [],
-  "author": "Professor Krasso",
-  "license": "MIT",
-  "dependencies": {
-    "cookie-parser": "^1.4.6",
-    "ejs": "^3.1.6",
-    "express": "^4.17.3",
-    "express-session": "^1.17.2",
-    "moment": "^2.29.1",
-    "mongoose": "^6.2.5",
-    "passport": "^0.5.2",
-    "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^7.0.0"
-  },
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongoose": "^6.5.0"
   }
 }

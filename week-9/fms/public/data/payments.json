@@ -1,0 +1,18 @@
+[
+  {
+    "text": "Visa",
+    "value": "visa"
+  },
+  {
+    "text": "Discover",
+    "value": "discover"
+  },
+  {
+    "text": "Master Card",
+    "value": "mastercard"
+  },
+  {
+    "text": "PayPal",
+    "value": "paypal"
+  }
+]

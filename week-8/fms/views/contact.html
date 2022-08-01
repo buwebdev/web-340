@@ -1,43 +1,40 @@
-<%- include('_header.html') %>
-
-<%- include('_navbar.html') %>
+<%- include('./partials/_header.html') %>
 
 <section class="container">
-    <h1 class="center-text"><%= message %> </h1>
+    <h1 class="center-text">Welcome to the FMS Contact Us Page! </h1>
     <div class="card center-div">
         <div class="card-title">
-            Welcome to the <%= pageName %>
+            <%= pageTitle %>
         </div>
 
         <div class="card-content">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis dignissim lorem. Pellentesque interdum eget arcu id viverra.
-                Nunc iaculis nisl ut mi venenatis bibendum. Quisque vel rutrum felis. Suspendisse pretium, quam vitae viverra condimentum, mi neque convallis ligula,
-                ac consectetur eros nisi quis purus. Mauris lacinia mauris eget tortor pellentesque, et pretium eros lobortis. Curabitur et euismod turpis, ut laoreet ipsum.
-                Aenean lacinia tincidunt egestas. Donec hendrerit placerat dignissim. Curabitur arcu ante, porta id est ut, cursus mattis est.
-                Aliquam nec lacus eget eros dignissim commodo eget in est. Donec sem orci, sollicitudin ac egestas vestibulum,
-                facilisis vitae nulla. Mauris a velit tempus, efficitur metus id, malesuada eros. Fusce at ornare erat, quis convallis nulla.
-            </p>
+
+            <table style="border-spacing: 20px; width: 100%;">
+                <tr>
+                    <td>
+                        <div class="card-title">
+                            <i class="fa fa-phone fa-lg"></i><br />
+                        </div>
+
+                        <div class="card-content" style="text-align: center;">
+                            Toll free: 1-888-555-5555<br />
+                            Phone: 402-555-5555<br />
+                            Fax: 531-555-5555
+                        </div>
+                    </td>
+                    <td>
+                        <div class="card-title">
+                            <i class="fa fa-location-arrow fa-lg"></i>
+                        </div>
+                        <div class="card-content" style="text-align: center;">
+                            1000 Galvin Rd. South<br />
+                            Bellevue, NE 68005
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
 </section>
 
-<section class="container">
-    <div class="card center-div">
-        <div class="card-title">
-            <%= cardTitle %>
-        </div>
-
-        <div class="card-content">
-            <ol>
-                <% stores.forEach(function(store) { %>
-                    <li><strong>Name: </strong><%=store.name %><br /><strong>Location: </strong> <%= store.location %></li>
-                    <br />
-                <% }) %>
-            </ol>
-
-        </div>
-    </div>
-</section>
-
-<%- include('_footer.html') %>
+<%- include('./partials/_footer.html') %>
