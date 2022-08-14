@@ -22,7 +22,7 @@ Approach every week from top-to-bottom and do not move to the next assignment/ex
 ```bash
 git clone https://github.com/buwebdev/web-340.git
 cd web-340
-``
+```
 
 Setting up and running the examples:
 ```bash
