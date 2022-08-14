@@ -20,15 +20,15 @@ Most exercises and assignments have runnable sample code so you can visually see
 Approach every week from top-to-bottom and do not move to the next assignment/exercise without fully understanding the previous.
 
 ```bash
-git clone https://github.com/rrkrasso/web-340-code-snippets.git
-cd web-330-code-snippets
-```
+git clone https://github.com/buwebdev/web-340.git
+cd web-340
+``
 
 Setting up and running the examples:
 ```bash
 cd [week]/[folder]
-npm install --save
-npm start
+npm install 
+npm start | npm run dev | node index.js
 ```
 
 
