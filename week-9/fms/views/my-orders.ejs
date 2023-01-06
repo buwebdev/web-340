@@ -1,4 +1,4 @@
-<%- include('./partials/_header.html') %>
+<%- include('./partials/_header.ejs') %>
 
 <section>
   <br />
@@ -6,19 +6,19 @@
     <div class="card-title">Order Lookup Form</div>
 
     <div class="card-content">
-      <div class="form">
+      <div class="form full-width">
 
         <div class="form-field">
           <label for="lastName">last Name</label><br />
-          <input type="text" class="input" name="lastName" id="lastName" required>
+          <input type="text" class="input full-width" name="lastName" id="lastName" required>
         </div>
 
         <div class="form-field">
           <input type="submit" value="Search" id="search" class="btn btn-primary full-width">
         </div>
-
-        <div class="center-div" id="orders"></div>
       </div>
+
+      <div class="center-div" id="orders"></div>
     </div>
   </div>
 </section>
@@ -33,7 +33,7 @@
     fetch('/api/orders/' + firstName)
             .then(res => res.json())
             .then(data => {
-              let tableString = `<br /><h4 style="font-size: 32px; text-align: center; padding-bottom: 10px; font-weight: lighter">My Orders</h4><table id="orders" style="width: 100%;" class="table"><tr><th>First name</th><th>Last name</th><th>Payment</th></tr>`;
+              let tableString = `<br /><h4 style="font-size: 32px; text-align: center; padding-bottom: 10px; font-weight: lighter">My Orders</h4><table id="orders" style="width: 100%;" class="table full-width"><tr><th>First name</th><th>Last name</th><th>Payment</th></tr>`;
 
               for (let order of data) {
                 tableString += `<tr><td>${order.firstName}</td><td>${order.lastName}</td><td>${order.payment}</td></tr>`;
@@ -47,4 +47,4 @@
 
 </script>
 
-<%- include('./partials/_footer.html') %>
+<%- include('./partials/_footer.ejs') %>

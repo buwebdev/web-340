@@ -6,10 +6,8 @@ const Fruit = require('./models/fruit');
 
 const app = express();
 
-app.engine('.html', require('ejs').__express);
-
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'html');
+app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true })); // added during week 6 assignment
