@@ -1,0 +1,10 @@
+{
+    "name": "weight-converter",
+    "version": "1.0.0",
+    "description": "A simple weight converter",
+    "main": "weight-converter.js",
+    "scripts": {
+      "start": "node weight-converter.js"
+    },
+    "dependencies": {}
+  }
