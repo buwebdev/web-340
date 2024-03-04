@@ -8,5 +8,8 @@ node_modules/
 # Optional npm cache directory
 .npm
 
+# OS X Finder
+.DS_Store 
+
 # Optional eslint cache
 .eslintcache
