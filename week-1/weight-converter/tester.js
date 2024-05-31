@@ -21,9 +21,7 @@ const path = require("path");
 const testWeight = "10";
 const expectedOutput = "4.54\n";  // Note: the output will have a trailing newline
 
-const testProcess = spawn("npm", ["start"], { cwd: path.dirname(__filename) });
-
-testProcess.stdin.write(`${testWeight}\n`);
+const testProcess = spawn("node", ["weight-converter.js", testWeight], { cwd: path.dirname(__filename) });
 
 testProcess.stdout.on("data", (data) => {
   const output = data.toString();
