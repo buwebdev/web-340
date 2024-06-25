@@ -8,20 +8,20 @@
 "use strict";
 
 const readline = require("readline");
-const SuperheroEmitter = require("./superhero");
+const TacoStandEmitter = require("./tacoStand");
 
-const superhero = new SuperheroEmitter();
+const tacoStand = new TacoStandEmitter();
 
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
 
-// TODO: Set up event listeners for the superhero object
+// TODO: Set up event listeners for the tacoStand object
 rl.on("line", (input) => {
   const [command, ...args] = input.split(" ");
 
   // TODO: Handle the commands
 });
 
-console.log(`Enter a command: "action", "danger", or "help", followed by a space and the argument.`);
+console.log(`Enter a command: "serve", "prepare", or "rush", followed by a space and the argument.`);
