@@ -1,0 +1,11 @@
+{
+  "name": "fantasy-character-creation-stream",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "scripts": {
+    "test": "jest --runInBand"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
